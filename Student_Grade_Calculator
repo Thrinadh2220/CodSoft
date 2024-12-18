@@ -1,0 +1,50 @@
+package Student_Grade_Calculator;
+import java.util.Scanner;
+public class SGCal {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("##########Student Grade Calculation##########");
+        System.out.println("Enter the Number of Subjects:");
+        int sub=sc.nextInt(); //Here sub is number of Subjects
+        int total=0;
+        System.out.println("Enter the marks obtained in "+sub+" subjects respectively: ");
+        for(int i=0;i<sub;i++)
+        {
+            int m=sc.nextInt();  //Here m is Marks
+            total=total+m;
+        }
+
+        double AP=(double)total/sub;  //Here AP is Average_Percentage
+        String G;  //Here G is Grade
+        if(AP>=90)
+        {
+            G="A+";
+        }
+        else if(AP>=80)
+        {
+            G="A";
+        }
+        else if(AP>=70)
+        {
+            G="B";
+        }
+        else if(AP>=60)
+        {
+            G="C";
+        }
+        else if(AP>=50)
+        {
+            G="D";
+        }
+        else if(AP>=40)
+        {
+            G="E";
+        }
+        else{
+            G="Fail(F)";
+        }
+        System.out.println("Total Marks = "+total);
+        System.out.println("Average_Percentage = "+AP+" %");
+        System.out.println("Grade is : "+G);
+    }
+}

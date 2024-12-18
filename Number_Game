@@ -1,0 +1,58 @@
+import java.util.Scanner;
+class range{
+    public int generate(int maximum,int minimum){
+        return (int) (Math.random()*(maximum-minimum+1)+minimum);
+    }
+}
+
+public class Number_Game{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        range r=new range();
+        int TA=0;
+        int win=0;
+
+        while(true){
+            System.out.println("Enter the Minimum Number: ");
+            int minimum=sc.nextInt();
+            System.out.println("Enter the Maximum Number: ");
+            int maximum=sc.nextInt();
+            sc.nextLine();
+            int c=r.generate(maximum,minimum);
+            int A=0;
+
+            while(true){
+                System.out.println("Guess a number between "+minimum+" and "+maximum);
+                int g=sc.nextInt();
+                A++;
+
+                if(g>c){
+                    System.out.println("Its Greater");
+                }
+                else if(g<c)
+                {
+                    System.out.println("Its Lower");
+                }
+                else{
+                    System.out.println("Correct Guess");
+                    win++;
+                    break;
+                }
+
+            }
+            TA=TA+A;
+            System.out.println("Attempt = "+A);
+            System.out.println("Wins = "+win);
+
+            double winrate=(double) win/TA*100;
+            System.out.printf("Your winrate is %.2f%%\n",winrate);
+            System.out.println("Do you want to play again (y / n)");
+            String PA=sc.next();
+            if(!PA.equalsIgnoreCase("y")){
+                sc.close();
+                System.exit(0);
+            }
+            sc.nextLine();
+        }
+    }
+}
